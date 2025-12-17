@@ -16,7 +16,7 @@ else()
     set(USERHOME $ENV{HOME})
 endif()
 set(sdkVersion 2.2.0)
-set(toolchainVersion 14_2_Rel1)
+set(toolchainVersion RISCV_ZCB_RPI_2_2_0_3)
 set(picotoolVersion 2.2.0-a4)
 set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(oled oled.cpp )
+add_executable(oled \src\main\oled.cpp)
 
 pico_set_program_name(oled "oled")
 pico_set_program_version(oled "0.1")
