@@ -35,7 +35,12 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(oled \src\main\oled.cpp)
+add_executable(oled oled.cpp
+        src/displaylib/ssd1306.cpp
+        src/displaylib/display_fonts.cpp
+        src/displaylib/display_graphics.cpp
+        src/displaylib/display_print.cpp
+)
 
 pico_set_program_name(oled "oled")
 pico_set_program_version(oled "0.1")
@@ -51,6 +56,7 @@ target_link_libraries(oled
 # Add the standard include files to the build
 target_include_directories(oled PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
 # Add any user requested libraries
